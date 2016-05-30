@@ -1,7 +1,6 @@
 {
   "name": "redux-midi",
   "description": "Streamlined Web MIDI I/O for Redux apps",
-  "version": "1.0.0",
   "main": "index.js",
   "scripts": {
     "build": "babel src -d dist",
