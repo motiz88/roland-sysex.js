@@ -1,7 +1,7 @@
-export default function observeStore(store, select, onChange) {
+export default function observeStore (store, select, onChange) {
   let currentState;
 
-  function handleChange() {
+  function handleChange () {
     const nextState = select(store.getState());
     if (nextState !== currentState) {
       const prevState = currentState;
