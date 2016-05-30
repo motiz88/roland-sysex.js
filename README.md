@@ -1,4 +1,4 @@
-# redux-midi
+# redux-midi [![Build Status](https://travis-ci.org/motiz88/redux-midi.svg?branch=master)](https://travis-ci.org/motiz88/redux-midi)
 
 This module provides a store enhancer and a set of action creators wrapping the Web MIDI API for use in Redux apps.
 
