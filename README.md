@@ -26,5 +26,5 @@ This repo is a work in progress. Watch this space for updates and in the mean ti
 [license-url]: http://motiz88.mit-license.org/
 [semistandard-image]: https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg?style=flat-square
 [semistandard-url]: https://github.com/Flet/semistandard
-[coverage-image]: https://coveralls.io/repos/github/motiz88/redux-midi/badge.svg?branch=master
+[coverage-image]: https://img.shields.io/coveralls/motiz88/redux-midi.svg?style=flat-square
 [coverage-url]: https://coveralls.io/github/motiz88/redux-midi?branch=master
