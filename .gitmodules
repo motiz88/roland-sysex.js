@@ -1,0 +1,3 @@
+[submodule "submodules/web-midi-test-api"]
+	path = submodules/web-midi-test-api
+	url = git://github.com/mohayonao/web-midi-test-api.git
