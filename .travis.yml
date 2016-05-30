@@ -21,3 +21,10 @@ after_success:
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/
+cache:
+  directories:
+    - $HOME/.npm
+    - node_modules
+    - $HOME/.babel-cache
+    - $HOME/.nvm
+    - $NVM_DIR
