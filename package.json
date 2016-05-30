@@ -1,17 +1,17 @@
 {
   "name": "redux-midi",
-  "version": "0.1.0",
   "description": "Streamlined Web MIDI I/O for Redux apps",
   "main": "index.js",
   "scripts": {
     "build": "babel src -d dist",
     "test": "mocha",
     "examples:bare-input": "webpack-dev-server --entry ./examples/bare-input --config webpack.config.js",
-    "example:bare-input": "npm run examples:bare-input"
+    "example:bare-input": "npm run examples:bare-input",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/motiz88/redux-midi.git"
+    "url": "https://github.com/motiz88/redux-midi.git"
   },
   "keywords": [
     "redux",
@@ -49,11 +49,18 @@
     "sinon-chai": "^2.8.0",
     "web-midi-test-api": "file:submodules/web-midi-test-api",
     "webpack": "^1.13.1",
-    "webpack-dev-server": "^1.14.1"
+    "webpack-dev-server": "^1.14.1",
+    "semantic-release": "^4.3.5"
   },
   "dependencies": {
     "deep-equal": "^1.0.1",
     "lodash.sortby": "^4.5.0",
     "redux-duck": "^1.0.1"
+  },
+  "release": {
+      "verifyRelease": {
+        "path": "cracks",
+        "paths": ["test", "package.json"]
+      }
   }
 }
