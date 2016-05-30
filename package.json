@@ -1,7 +1,9 @@
 {
   "name": "redux-midi",
   "description": "Streamlined Web MIDI I/O for Redux apps",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "jsnext:main": "src/index.js",
+  "files": ["dist", "src", ".babelrc"],
   "scripts": {
     "build": "cross-env BABEL_ENV=production babel src -d dist",
     "test": "mocha && semistandard",
