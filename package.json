@@ -1,0 +1,57 @@
+{
+  "name": "redux-midi",
+  "version": "0.1.0",
+  "description": "Streamlined Web MIDI I/O for Redux apps",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel src -d dist",
+    "test": "mocha",
+    "examples:bare-input": "webpack-dev-server --entry ./examples/bare-input --config webpack.config.js",
+    "example:bare-input": "npm run examples:bare-input"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/motiz88/redux-midi.git"
+  },
+  "keywords": [
+    "redux",
+    "midi"
+  ],
+  "author": "Moti Zilberman <motiz88@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/motiz88/redux-midi/issues"
+  },
+  "homepage": "https://github.com/motiz88/redux-midi#readme",
+  "devDependencies": {
+    "babel-cli": "^6.9.0",
+    "babel-core": "^6.9.0",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "babel-register": "^6.9.0",
+    "chai": "^3.5.0",
+    "chai-deep-match": "^1.0.2",
+    "chai-things": "^0.2.0",
+    "deep-freeze": "0.0.1",
+    "eslint": "^2.11.0",
+    "flux-standard-action": "^0.6.1",
+    "karma": "^0.13.22",
+    "karma-sinon-chai": "^1.2.0",
+    "lodash.uniq": "^4.3.0",
+    "lolex": "^1.5.0",
+    "mocha": "^2.5.3",
+    "redux": "^3.5.2",
+    "redux-logger": "^2.6.1",
+    "redux-mock-store": "^1.0.4",
+    "sinon": "^1.17.4",
+    "sinon-chai": "^2.8.0",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1"
+  },
+  "dependencies": {
+    "deep-equal": "^1.0.1",
+    "lodash.sortby": "^4.5.0",
+    "redux-duck": "^1.0.1"
+  }
+}

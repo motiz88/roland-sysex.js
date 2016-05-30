@@ -1,0 +1,6 @@
+*.log
+dist/
+node_modules/
+.babel-cache/
+.DS_STORE
+coverage/
