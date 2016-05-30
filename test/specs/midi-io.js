@@ -1,5 +1,5 @@
 import { makeMidiEnhancer, SEND_MIDI_MESSAGE, RECEIVE_MIDI_MESSAGE, SET_LISTENING_DEVICES } from '../../src';
-import MidiApi from '../../submodules/web-midi-test-api/src';
+import MidiApi from 'web-midi-test-api';
 import createMockStore from '../utils/mockStore';
 import unique from 'lodash.uniq';
 import sinon from 'sinon';

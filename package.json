@@ -46,6 +46,7 @@
     "redux-mock-store": "^1.0.4",
     "sinon": "^1.17.4",
     "sinon-chai": "^2.8.0",
+    "web-midi-test-api": "file:submodules/web-midi-test-api",
     "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1"
   },
