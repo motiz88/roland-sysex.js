@@ -1,6 +1,8 @@
 # redux-midi
 [![travis][travis-image]][travis-url]
 [![npm][npm-image]][npm-url]
+[![coverage][coverage-image]][coverage-url]
+
 [![semantic release][semantic-release-image]][semantic-release-url]
 [![js-semistandard-style][semistandard-image]][semistandard-url]
 [![MIT License][license-image]][license-url]
@@ -24,3 +26,5 @@ This repo is a work in progress. Watch this space for updates and in the mean ti
 [license-url]: http://motiz88.mit-license.org/
 [semistandard-image]: https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg?style=flat-square
 [semistandard-url]: https://github.com/Flet/semistandard
+[coverage-image]: https://coveralls.io/repos/github/motiz88/redux-midi/badge.svg?branch=master
+[coverage-url]: https://coveralls.io/github/motiz88/redux-midi?branch=master
