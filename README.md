@@ -7,6 +7,8 @@
 [![js-semistandard-style][semistandard-image]][semistandard-url]
 [![MIT License][license-image]][license-url]
 
+[API documentation][doc-url] (up-to-date with `master`)
+
 This module provides a store enhancer and a set of action creators wrapping the Web MIDI API for use in Redux apps.
 
 * The list of MIDI devices is kept up-to-date in the state tree for your own reducers to use; updates are sent via the `RECEIVE_DEVICE_LIST` action.
@@ -14,7 +16,7 @@ This module provides a store enhancer and a set of action creators wrapping the 
 * Dispatch a `SET_LISTENING_DEVICES` action with the IDs of one or more input devices and you will begin receiving messages from them.
 * Listen for `RECEIVE_MIDI_MESSAGE` actions to handle incoming MIDI messages.
 
-This repo is a work in progress. Watch this space for updates and in the mean time have a look at the source code for a better idea of what's going on.
+This repo is a work in progress. Watch this space for updates and in the mean time have a look at the [documentation][doc-url] and the source code for a better idea of what's going on.
 
 [travis-image]: https://img.shields.io/travis/motiz88/redux-midi.svg?style=flat-square
 [travis-url]: https://travis-ci.org/motiz88/redux-midi
@@ -28,3 +30,4 @@ This repo is a work in progress. Watch this space for updates and in the mean ti
 [semistandard-url]: https://github.com/Flet/semistandard
 [coverage-image]: https://img.shields.io/coveralls/motiz88/redux-midi.svg?style=flat-square
 [coverage-url]: https://coveralls.io/github/motiz88/redux-midi?branch=master
+[doc-url]: http://motiz88.github.io/redux-midi/
