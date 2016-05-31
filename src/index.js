@@ -84,7 +84,7 @@ const defaultRequestMIDIAccess = global && global.navigator && global.navigator.
  *   applyMiddleware(...middleware)
  * ));
  */
-export const makeMidiEnhancer = ({midiOptions, stateKey = 'midi', requestMIDIAccess = defaultRequestMIDIAccess}) => next => (userReducer, preloadedState) => {
+export const makeMidiEnhancer = ({midiOptions, stateKey = 'midi', requestMIDIAccess = defaultRequestMIDIAccess} = {}) => next => (userReducer, preloadedState) => {
   let midiAccess = null;
 
   const enhancedReducer = (state = {}, action) => {
