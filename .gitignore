@@ -5,3 +5,5 @@ node_modules/
 .DS_STORE
 coverage/
 doc/
+deploy_key
+deploy_key.pub
