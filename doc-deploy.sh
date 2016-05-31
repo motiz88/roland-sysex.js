@@ -25,10 +25,8 @@ SHA=`git rev-parse --verify HEAD`
 git clone $REPO doc
 cd doc
 git checkout $TARGET_BRANCH || git checkout --orphan $TARGET_BRANCH
+git reset --hard
 cd ..
-
-# Clean out existing contents
-rm -rf doc/**/* || exit 0
 
 # Run our compile script
 doCompile
@@ -42,7 +40,7 @@ git config user.email "$COMMIT_AUTHOR_EMAIL"
 mv ../.gitignore ../.gitignore.tmp
 
 # If there are no changes to the compiled doc (e.g. this is a README update) then just bail.
-if [ -z `git diff --exit-code` ]; then
+if [ -z $(git diff --exit-code) ]; then
     mv ../.gitignore.tmp ../.gitignore
     echo "No changes to the output on this push; exiting."
     exit 0
