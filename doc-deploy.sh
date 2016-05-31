@@ -25,6 +25,7 @@ SHA=`git rev-parse --verify HEAD`
 git clone $REPO doc
 cd doc
 git checkout $TARGET_BRANCH || git checkout --orphan $TARGET_BRANCH
+git clean -f
 git reset --hard
 cd ..
 
@@ -36,19 +37,13 @@ cd doc
 git config user.name "Travis CI"
 git config user.email "$COMMIT_AUTHOR_EMAIL"
 
-
-mv ../.gitignore ../.gitignore.tmp
-
-git add . --all
-
 # If there are no changes to the compiled doc (e.g. this is a README update) then just bail.
-if [ -z $(git diff --exit-code) ]; then
-    mv ../.gitignore.tmp ../.gitignore
+if [[ ! $(git status --short --untracked) ]]; then
     echo "No changes to the output on this push; exiting."
     exit 0
 fi
 
-mv ../.gitignore.tmp ../.gitignore
+git add . --all
 
 # Commit the "changes", i.e. the new version.
 # The delta will show diffs between new and old versions.
