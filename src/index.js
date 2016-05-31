@@ -65,10 +65,24 @@ import deepEqual from 'deep-equal';
 const defaultRequestMIDIAccess = global && global.navigator && global.navigator.requestMIDIAccess.bind(global.navigator);
 
 /**
- * Create a Redux store enhancer wrapping MIDI I/O and device discovery.
+ * Create a Redux {@link https://github.com/reactjs/redux/blob/master/docs/Glossary.md#store-enhancer|store enhancer} wrapping MIDI I/O and device discovery.
  * @param {MIDIOptions} [$0.midiOptions] - Options with which to invoke `requestMIDIAccess`.
  * @param {string} [$0.stateKey='midi'] - The key under which the enhancer will store MIDI device information in the state.
  * @param {function(MIDIOptions): Promise<MIDIAccess>} [$0.requestMIDIAccess=navigator.requestMIDIAccess] - Web MIDI API entry point.
+ * @example
+ * // Basic usage
+ * import { createStore } from 'redux';
+ * import { makeMidiEnhancer } from 'redux-midi'; 
+ * const store = createStore(reducer, initialState, makeMidiEnhancer());
+ * @example
+ * // With middleware
+ * import { createStore, applyMiddleware, compose } from 'redux';
+ * import { makeMidiEnhancer } from 'redux-midi';
+ * // assuming middleware is an array of Redux middleware functions 
+ * const store = createStore(reducer, initialState, compose(
+ *   makeMidiEnhancer({midiOptions: {sysex: true}}),
+ *   applyMiddleware(...middleware)
+ * ));
  */
 export const makeMidiEnhancer = ({midiOptions, stateKey = 'midi', requestMIDIAccess = defaultRequestMIDIAccess}) => next => (userReducer, preloadedState) => {
   let midiAccess = null;
