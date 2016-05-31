@@ -72,13 +72,13 @@ const defaultRequestMIDIAccess = global && global.navigator && global.navigator.
  * @example
  * // Basic usage
  * import { createStore } from 'redux';
- * import { makeMidiEnhancer } from 'redux-midi'; 
+ * import { makeMidiEnhancer } from 'redux-midi';
  * const store = createStore(reducer, initialState, makeMidiEnhancer());
  * @example
  * // With middleware
  * import { createStore, applyMiddleware, compose } from 'redux';
  * import { makeMidiEnhancer } from 'redux-midi';
- * // assuming middleware is an array of Redux middleware functions 
+ * // assuming middleware is an array of Redux middleware functions
  * const store = createStore(reducer, initialState, compose(
  *   makeMidiEnhancer({midiOptions: {sysex: true}}),
  *   applyMiddleware(...middleware)
