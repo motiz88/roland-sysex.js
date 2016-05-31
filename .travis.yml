@@ -32,5 +32,5 @@ cache:
     - $NVM_DIR
 env:
   global:
-  - ENCRYPTION_LABEL: "3d615b3a1909"
+  - ENCRYPTION_LABEL: "c410de6afd78"
   - COMMIT_AUTHOR_EMAIL: "motiz88@gmail.com"
