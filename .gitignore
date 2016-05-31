@@ -4,3 +4,4 @@ node_modules/
 .babel-cache/
 .DS_STORE
 coverage/
+doc/
