@@ -39,6 +39,8 @@ git config user.email "$COMMIT_AUTHOR_EMAIL"
 
 mv ../.gitignore ../.gitignore.tmp
 
+git add . --all
+
 # If there are no changes to the compiled doc (e.g. this is a README update) then just bail.
 if [ -z $(git diff --exit-code) ]; then
     mv ../.gitignore.tmp ../.gitignore
@@ -50,7 +52,6 @@ mv ../.gitignore.tmp ../.gitignore
 
 # Commit the "changes", i.e. the new version.
 # The delta will show diffs between new and old versions.
-git add . --all
 git commit -m "Deploy to GitHub Pages: ${SHA}"
 
 # Get the deploy key by using Travis's stored variables to decrypt deploy_key.enc
