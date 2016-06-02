@@ -1,5 +1,5 @@
 {
-  "name": "js-starter-2016",
+  "name": "roland-sysex.js",
   "description": "starter-description",
   "main": "dist/index.js",
   "jsnext:main": "src/index.js",
@@ -9,7 +9,7 @@
     ".babelrc"
   ],
   "scripts": {
-    "repo-setup": "./auto-deploy-docs/travis-gen-deploy-key.sh motiz88/js-starter-2016",
+    "repo-setup": "./auto-deploy-docs/travis-gen-deploy-key.sh motiz88/roland-sysex.js",
     "build": "cross-env BABEL_ENV=production babel src -d dist",
     "test": "mocha && semistandard",
     "semantic-release": "semantic-release pre && npm run build && npm publish && semantic-release post",
@@ -22,15 +22,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/motiz88/js-starter-2016.git"
+    "url": "https://github.com/motiz88/roland-sysex.js.git"
   },
   "keywords": [],
   "author": "Moti Zilberman <motiz88@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/motiz88/js-starter-2016/issues"
+    "url": "https://github.com/motiz88/roland-sysex.js/issues"
   },
-  "homepage": "https://github.com/motiz88/js-starter-2016#readme",
+  "homepage": "https://github.com/motiz88/roland-sysex.js#readme",
   "devDependencies": {
     "babel-cli": "^6.9.0",
     "babel-core": "^6.9.0",
