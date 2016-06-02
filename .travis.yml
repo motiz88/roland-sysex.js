@@ -32,5 +32,5 @@ cache:
     - $NVM_DIR
 env:
   global:
-  - ENCRYPTION_LABEL: "c410de6afd78"
+  - ENCRYPTION_LABEL: "$(cat travis-encryption-label)"
   - COMMIT_AUTHOR_EMAIL: "motiz88@gmail.com"

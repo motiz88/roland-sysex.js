@@ -1,3 +1,0 @@
-[submodule "submodules/web-midi-test-api"]
-	path = submodules/web-midi-test-api
-	url = git://github.com/motiz88/web-midi-test-api.git

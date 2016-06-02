@@ -1,6 +1,4 @@
 toc:
-  - name: redux-midi
+  - name: js-starter-2016
     description: |
-      <h4>A store enhancer and set of action creators wrapping the Web MIDI API for use in Redux apps.</h4>
-      This is the API documentation. More information is available on the module's <a href="https://github.com/motiz88/redux-midi">GitHub repo</a>.
-  - makeMidiEnhancer
+      <h4>starter-description</h4>
