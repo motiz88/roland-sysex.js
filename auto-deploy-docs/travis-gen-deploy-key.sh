@@ -1,4 +1,5 @@
 #!/bin/bash
+cd "${0%/*}"
 travis login
 travis sync
 rm -f deploy_key.*

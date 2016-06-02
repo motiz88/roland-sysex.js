@@ -18,7 +18,7 @@ after_success:
   - 'curl -Lo travis_after_all.py https://git.io/travis_after_all'
   - python travis_after_all.py
   - export $(cat .to_export_back) &> /dev/null
-  - bash ./doc-deploy.sh  
+  - bash ./auto-deploy-docs/doc-deploy.sh
   - npm run semantic-release
 branches:
   except:
@@ -32,5 +32,5 @@ cache:
     - $NVM_DIR
 env:
   global:
-  - ENCRYPTION_LABEL: "$(cat travis-encryption-label)"
+  - ENCRYPTION_LABEL: "$(cat auto-deploy-docs/travis-encryption-label)"
   - COMMIT_AUTHOR_EMAIL: "motiz88@gmail.com"
