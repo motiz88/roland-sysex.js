@@ -12,7 +12,7 @@
     "repo-setup": "./auto-deploy-docs/travis-gen-deploy-key.sh motiz88/js-starter-2016",
     "build": "cross-env BABEL_ENV=production babel src -d dist",
     "test": "mocha && semistandard",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "semantic-release": "semantic-release pre && npm run build && npm publish && semantic-release post",
     "coveralls": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && coveralls < ./coverage/lcov.info && shx rm -rf ./coverage",
     "coverage": "istanbul cover ./node_modules/mocha/bin/_mocha --report html -- -R spec",
     "doc:serve": "documentation serve src/index.js --watch -c documentation.yml",
