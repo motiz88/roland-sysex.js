@@ -1,4 +1,4 @@
 toc:
   - name: roland-sysex.js
     description: |
-      <h4>starter-description</h4>
+      <h4>Parse and generate Roland-specific MIDI SysEx messages in JavaScript</h4>

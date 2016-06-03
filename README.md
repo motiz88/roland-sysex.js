@@ -9,7 +9,7 @@
 
 [API documentation][doc-url] (up-to-date with `master`)
 
-starter-description
+Parse and generate Roland-specific MIDI SysEx messages in JavaScript
 
 [travis-image]: https://img.shields.io/travis/motiz88/https://github.com/motiz88/roland-sysex.js.git.svg?style=flat-square
 [travis-url]: https://travis-ci.org/motiz88/https://github.com/motiz88/roland-sysex.js.git

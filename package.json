@@ -1,6 +1,6 @@
 {
   "name": "roland-sysex.js",
-  "description": "starter-description",
+  "description": "Parse and generate Roland-specific MIDI SysEx messages in JavaScript",
   "main": "dist/index.js",
   "jsnext:main": "src/index.js",
   "files": [
@@ -24,7 +24,7 @@
     "type": "git",
     "url": "https://github.com/motiz88/roland-sysex.js.git"
   },
-  "keywords": [],
+  "keywords": ["roland", "midi", "sysex"],
   "author": "Moti Zilberman <motiz88@gmail.com>",
   "license": "MIT",
   "bugs": {
