@@ -1,4 +1,4 @@
-# https://github.com/motiz88/roland-sysex.js.git
+# roland-sysex.js
 [![travis][travis-image]][travis-url]
 [![npm][npm-image]][npm-url]
 [![coverage][coverage-image]][coverage-url]
