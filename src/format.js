@@ -32,7 +32,8 @@ export default function format (message) {
     return Buffer.concat(message.map(format));
   }
   const size = requiredSize(message);
-  const buf = Buffer.alloc(size);
+  const buf = new Buffer(size);
+  buf.fill(0);
   let i = 0;
   const write = data => {
     if (Buffer.isBuffer(data)) {

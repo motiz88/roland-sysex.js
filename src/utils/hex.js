@@ -7,5 +7,5 @@ export default function hexTemplateTag (strings, ...values) {
     }
   }
 
-  return Buffer.from(result.replace(/[^0-9a-f]/gi, ''), 'hex');
+  return new Buffer(result.replace(/[^0-9a-f]/gi, ''), 'hex');
 }

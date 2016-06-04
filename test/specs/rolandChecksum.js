@@ -7,7 +7,7 @@ describe('rolandChecksum', () => {
     expect(rolandChecksum).to.be.a('function');
   });
   it('should be correct', () => {
-    rolandChecksum(Buffer.from([0x00, 0x00, 0x00, 0x04, 0x0C, 0x08]))
+    rolandChecksum(new Buffer([0x00, 0x00, 0x00, 0x04, 0x0C, 0x08]))
       .should.equal(0x68);
   });
 });

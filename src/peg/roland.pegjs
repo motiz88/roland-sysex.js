@@ -1,7 +1,7 @@
 {
   function hex(str) {
     if (typeof str === 'string') {
-      return Buffer.from(str, 'hex');
+      return new Buffer(str, 'hex');
     }
     return str;
   }
