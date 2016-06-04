@@ -2,14 +2,14 @@
 import isChecksumValid from '../../src/isChecksumValid';
 import {expect} from 'chai';
 
-const goodSysexDr1 = {
+const goodSysexRQ1 = {
   type: 'sysex',
   data: {
     vendor: 'Roland',
     deviceId: 0x10,
     modelId: 0x6A,
     command: {
-      type: 'DR1',
+      type: 'RQ1',
       address: 0x01020304,
       size: 0,
       checksum: 0x76
@@ -17,14 +17,14 @@ const goodSysexDr1 = {
   }
 };
 
-const badSysexDr1 = {
+const badSysexRQ1 = {
   type: 'sysex',
   data: {
     vendor: 'Roland',
     deviceId: 0x10,
     modelId: 0x6A,
     command: {
-      type: 'DR1',
+      type: 'RQ1',
       address: 0x01020304,
       size: 0,
       checksum: 0x11
@@ -32,14 +32,14 @@ const badSysexDr1 = {
   }
 };
 
-const goodSysexDs1 = {
+const goodSysexDT1 = {
   type: 'sysex',
   data: {
     vendor: 'Roland',
     deviceId: 0x10,
     modelId: 0x6A,
     command: {
-      type: 'DS1',
+      type: 'DT1',
       address: 0x00000001,
       body: new Buffer([]),
       checksum: 0x7f
@@ -47,14 +47,14 @@ const goodSysexDs1 = {
   }
 };
 
-const badSysexDs1 = {
+const badSysexDT1 = {
   type: 'sysex',
   data: {
     vendor: 'Roland',
     deviceId: 0x10,
     modelId: 0x6A,
     command: {
-      type: 'DS1',
+      type: 'DT1',
       address: 0x00000001,
       body: new Buffer([]),
       checksum: 0x75
@@ -68,32 +68,32 @@ describe('isChecksumValid', () => {
   });
   describe('on sysex message', () => {
     it('should be correct when positive', () => {
-      isChecksumValid(goodSysexDr1).should.be.true;
-      isChecksumValid(goodSysexDs1).should.be.true;
+      isChecksumValid(goodSysexRQ1).should.be.true;
+      isChecksumValid(goodSysexDT1).should.be.true;
     });
     it('should be correct when negative', () => {
-      isChecksumValid(badSysexDr1).should.be.false;
-      isChecksumValid(badSysexDs1).should.be.false;
+      isChecksumValid(badSysexRQ1).should.be.false;
+      isChecksumValid(badSysexDT1).should.be.false;
     });
   });
   describe('on sysex.data', () => {
     it('should be correct when positive', () => {
-      isChecksumValid(goodSysexDr1.data).should.be.true;
-      isChecksumValid(goodSysexDs1.data).should.be.true;
+      isChecksumValid(goodSysexRQ1.data).should.be.true;
+      isChecksumValid(goodSysexDT1.data).should.be.true;
     });
     it('should be correct when negative', () => {
-      isChecksumValid(badSysexDr1.data).should.be.false;
-      isChecksumValid(badSysexDs1.data).should.be.false;
+      isChecksumValid(badSysexRQ1.data).should.be.false;
+      isChecksumValid(badSysexDT1.data).should.be.false;
     });
   });
   describe('on sysex.data.command', () => {
     it('should be correct when positive', () => {
-      isChecksumValid(goodSysexDr1.data.command).should.be.true;
-      isChecksumValid(goodSysexDs1.data.command).should.be.true;
+      isChecksumValid(goodSysexRQ1.data.command).should.be.true;
+      isChecksumValid(goodSysexDT1.data.command).should.be.true;
     });
     it('should be correct when negative', () => {
-      isChecksumValid(badSysexDr1.data.command).should.be.false;
-      isChecksumValid(badSysexDs1.data.command).should.be.false;
+      isChecksumValid(badSysexRQ1.data.command).should.be.false;
+      isChecksumValid(badSysexDT1.data.command).should.be.false;
     });
   });
 });

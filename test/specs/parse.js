@@ -11,7 +11,7 @@ describe('parse()', () => {
     parse(hex `F0 F7 12 F5 F0 F7`)
     .should.deep.equal([{type: 'sysex', data: new Buffer([])}, {type: 'sysex', data: new Buffer([])}]);
   });
-  it('should parse DR1', () => {
+  it('should parse RQ1', () => {
     parse(hex `F0   41 10 6A  11   01 02 03 04   00 00 00 00   76  F7`)
     .should.deep.equal([{
       type: 'sysex',
@@ -20,7 +20,7 @@ describe('parse()', () => {
         deviceId: 0x10,
         modelId: 0x6A,
         command: {
-          type: 'DR1',
+          type: 'RQ1',
           address: 0x01020304,
           size: 0,
           checksum: 0x76
@@ -28,7 +28,7 @@ describe('parse()', () => {
       }
     }]);
   });
-  it('should parse DS1', () => {
+  it('should parse DT1', () => {
     parse(hex `F0   41 10 6A  12   00 00 00 01   7F F7`)
     .should.deep.equal([{
       type: 'sysex',
@@ -37,7 +37,7 @@ describe('parse()', () => {
         deviceId: 0x10,
         modelId: 0x6A,
         command: {
-          type: 'DS1',
+          type: 'DT1',
           address: 0x000000001,
           body: new Buffer([]),
           checksum: 0x7f

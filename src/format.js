@@ -1,16 +1,19 @@
-import formatSize4 from './formats/size4';
-import formatAddress4 from './formats/address4';
 import rolandChecksum from './rolandChecksum';
 
 function requiredSize (message) {
   if (Buffer.isBuffer(message)) return message.length;
   if (typeof message === 'number') return 1; // make it simple
+  if (!message) return 0;
   switch (message.type) {
     case 'sysex':
       return 2 + requiredSize(message.data);
+    case 'RQ1':
+    /* falls through */
     case 'DR1':
       // command byte + address + size + checksum
       return 1 + 4 + 4 + 1;
+    case 'DT1':
+    /* falls through */
     case 'DS1':
       // command byte + address + body + checksum
       return 1 + 4 + requiredSize(message.body) + 1;
@@ -32,6 +35,8 @@ export default function format (message) {
   if (Array.isArray(message)) {
     return Buffer.concat(message.map(format));
   }
+  if (Buffer.isBuffer(message)) return message;
+  if (!message || typeof message !== 'object') throw new Error('Message must be an Object or a Buffer');
   const size = requiredSize(message);
   const buf = new Buffer(size);
   buf.fill(0);
@@ -46,35 +51,45 @@ export default function format (message) {
   switch (message.type) {
     case 'sysex':
       write(0xF0);
-      if (Buffer.isBuffer(message.data)) {
-        write(message.data);
-      } else if (message.data.vendor === 'Roland') {
-        write(0x41);
-        write(message.data.deviceId);
-        write(message.data.modelId);
-        if (Buffer.isBuffer(message.data.command)) {
-          write(message.data.command);
-        } else {
-          switch (message.data.command.type) {
-            case 'DR1':
-              write(0x11);
-              write(formatAddress4(message.data.command.address));
-              write(formatSize4(message.data.command.size));
-              write(rolandChecksum(buf.slice(i - 8, i)));
-              break;
-            case 'DS1':
-              write(0x12);
-              write(formatAddress4(message.data.command.address));
-              write(message.data.command.body);
-              write(rolandChecksum(buf.slice(i - (4 + message.data.command.body.length), i)));
-              break;
-            default:
-              throw new Error('Could not format command');
+      if (message.data) {
+        if (Buffer.isBuffer(message.data)) {
+          write(message.data);
+        } else if (message.data.vendor === 'Roland') {
+          write(0x41);
+          write(message.data.deviceId);
+          write(message.data.modelId);
+          if (Buffer.isBuffer(message.data.command)) {
+            write(message.data.command);
+          } else {
+            switch (message.data.command.type) {
+              case 'RQ1':
+              /* falls through */
+              case 'DR1':
+                write(0x11);
+                i = buf.writeUInt32BE(message.data.command.address, i);
+                i = buf.writeUInt32BE(message.data.command.size, i);
+                write(rolandChecksum(buf.slice(i - 8, i)));
+                break;
+              case 'DT1':
+              /* falls through */
+              case 'DS1':
+                write(0x12);
+                i = buf.writeUInt32BE(message.data.command.address, i);
+                write(message.data.command.body);
+                write(rolandChecksum(buf.slice(i - (4 + message.data.command.body.length), i)));
+                break;
+              default:
+                throw new Error(`Unknown ${message.data.vendor} SysEx command ${message.data.command.type}`);
+            }
           }
+        } else {
+          throw new Error(`Unknown SysEx vendor ${message.data.vendor}`);
         }
       }
       write(0xF7);
       break;
+    default:
+      throw new Error(`Unsupported message type ${message.type}`);
   }
   return buf;
 }

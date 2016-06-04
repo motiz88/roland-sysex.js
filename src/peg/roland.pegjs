@@ -32,41 +32,42 @@ SYSEX_START data:(rolandSysex / DATA_BYTES) SYSEX_END {return {type: 'sysex', da
 rolandSysex "Roland SysEx" = "41"i
 deviceId: extensibleId
 modelId: extensibleId
-command:(rolandDR1 / rolandDS1 / DATA_BYTE*)
+command:(rolandRQ1 / rolandDT1 / DATA_BYTE*)
 {return {vendor: "Roland", deviceId, modelId, command};}
 ;
 
-rolandDR1 "Data Receive 1" = "11"i
+rolandRQ1 "Data Receive 1" = "11"i
 address:ADDRESS4
 size:SIZE4
 checksum:DATA_BYTE
 {
-  const message = {type: "DR1", address, size, checksum: scalar(checksum)};
+  const message = {type: "RQ1", address, size, checksum: scalar(checksum)};
   if (!isChecksumValid(message))
-    error('DR1 message failed checksum validation');
+    error('RQ1 message failed checksum validation');
   return message;
 }
 ;
 
-rolandDS1 "Data Set 1" = "12"i
+rolandDT1 "Data Set 1" = "12"i
 address:ADDRESS4
 body: DATA_BYTES
 {
-  const message = {type: "DS1", address, body: body.slice(0, -1), checksum: scalar(body[body.length-1])};
+  const message = {type: "DT1", address, body: body.slice(0, -1), checksum: scalar(body[body.length-1])};
   if (!isChecksumValid(message))
-    error('DS1 message failed checksum validation');
+    error('DT1 message failed checksum validation');
   return message;
 }
 ;
 
-extensibleId = data:("00"i DATA_BYTE DATA_BYTE) {return hex(data.join('')); }
+extensibleId = data:(first:"00"i middle:"00"i* last:DATA_BYTE {return hex([first, ...middle, last].join(''));})
 / data:DATA_BYTE {return scalar(data)}; 
 
 DATA_BYTE = $([0-7][0-9A-F]i);
 SYSEX_START "SysEx Start" = "F0"i;
 SYSEX_END "SysEx End" = "F7"i;
-ADDRESS4 = data:FOUR_DATA_BYTES {return data.readUInt32BE(0);};
-SIZE4 = bytes:FOUR_DATA_BYTES {return bytes.reduce((a, b) => a + b, 0);};
+ADDRESS4 = UINT32BE;
+SIZE4 = UINT32BE;
+UINT32BE = data:FOUR_DATA_BYTES {return data.readUInt32BE(0);};
 FOUR_DATA_BYTES = data:(DATA_BYTE DATA_BYTE DATA_BYTE DATA_BYTE) {return hex(data.join('')); };
 DATA_BYTES = data:(DATA_BYTE*) {return hex(data.join('')); };
 NON_SYSEX "non-SysEx byte" = !"F0"i ANY_BYTE;

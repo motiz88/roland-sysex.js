@@ -19,14 +19,14 @@ type RolandSysexVendorData = {
   vendor: 'Roland',
   deviceId: number | Buffer,
   modelId: number | Buffer,
-  command: RolandSysexCommandDR1 | RolandSysexCommandDS1 | Buffer
+  command: RolandSysexCommandRQ1 | RolandSysexCommandDT1 | Buffer
 };
 
 /**
  * Describes a Roland "Data Request 1" command.
  */
-type RolandSysexCommandDR1 = {
-  type: 'DR1',
+type RolandSysexCommandRQ1 = {
+  type: 'RQ1' | 'DR1',
   address: number,
   size: number,
   checksum?: number
@@ -35,11 +35,11 @@ type RolandSysexCommandDR1 = {
 /**
  * Describes a Roland "Data Set 1" command.
  */
-type RolandSysexCommandDS1 = {
-  type: 'DS1',
+type RolandSysexCommandDT1 = {
+  type: 'DT1' | 'DS1',
   address: number,
   body: Buffer,
   checksum?: number
 };
 
-export type {MIDIMessage, SysexMessage, RolandSysexVendorData, RolandSysexCommandDR1, RolandSysexCommandDS1};
+export type {MIDIMessage, SysexMessage, RolandSysexVendorData, RolandSysexCommandRQ1, RolandSysexCommandDT1};
