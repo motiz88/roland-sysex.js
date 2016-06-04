@@ -1,13 +1,13 @@
 /**
  * Describes a MIDI message.
- * This is either a SysexMessage or a Buffer;
+ * This is either a {@link SysexMessage} or a {@link Buffer}.
  */
-export type MIDIMessage = SysexMessage | Buffer;
+type MIDIMessage = SysexMessage | Buffer;
 
 /**
  * Describes a SysEx message.
  */
-export type SysexMessage = {
+type SysexMessage = {
   type: 'sysex',
   data: Buffer | RolandSysexVendorData;
 };
@@ -15,7 +15,7 @@ export type SysexMessage = {
 /**
  * Describes the Roland-specific parts of a SysEx message that are common to various commands.
  */
-export type RolandSysexVendorData = {
+type RolandSysexVendorData = {
   vendor: 'Roland',
   deviceId: number | Buffer,
   modelId: number | Buffer,
@@ -25,7 +25,7 @@ export type RolandSysexVendorData = {
 /**
  * Describes a Roland "Data Request 1" command.
  */
-export type RolandSysexCommandDR1 = {
+type RolandSysexCommandDR1 = {
   type: 'DR1',
   address: number,
   size: number,
@@ -35,9 +35,11 @@ export type RolandSysexCommandDR1 = {
 /**
  * Describes a Roland "Data Set 1" command.
  */
-export type RolandSysexCommandDS1 = {
+type RolandSysexCommandDS1 = {
   type: 'DS1',
   address: number,
   body: Buffer,
   checksum?: number
 };
+
+export type {MIDIMessage, SysexMessage, RolandSysexVendorData, RolandSysexCommandDR1, RolandSysexCommandDS1};

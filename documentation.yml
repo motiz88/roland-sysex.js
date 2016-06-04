@@ -2,3 +2,9 @@ toc:
   - name: roland-sysex.js
     description: |
       <h4>Parse and generate Roland-specific MIDI SysEx messages in JavaScript</h4>
+  - parse
+  - format
+  - name: Message types
+    description: |
+      The {@link format} and {@link parse} functions use plain objects as structured representations of MIDI data. 
+      The following types specify these objects' shapes. 
