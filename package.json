@@ -42,6 +42,7 @@
     "babel-cli": "^6.9.0",
     "babel-core": "^6.9.0",
     "babel-eslint": "^6.0.4",
+    "babel-plugin-transform-dead-code-elimination": "^2.0.1",
     "babel-plugin-transform-flow-strip-types": "^6.8.0",
     "babel-plugin-transform-inline-environment-variables": "^6.8.0",
     "babel-plugin-transform-runtime": "^6.9.0",
