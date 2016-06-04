@@ -54,6 +54,7 @@
     "cracks": "^3.1.2",
     "cross-env": "^1.0.8",
     "documentation": "^4.0.0-beta4",
+    "documentation-theme-utils": "github:motiz88/documentation-theme-utils",
     "glob": "^7.0.3",
     "glob-promise": "^1.0.6",
     "istanbul": "^1.0.0-alpha.2",
