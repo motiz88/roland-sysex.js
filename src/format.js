@@ -24,8 +24,8 @@ function requiredSize (message) {
 }
 
 /**
- * @param {MIDIMessage|Array<MIDIMessage>} message 
- * @returns {Buffer} The formatted message(s), ready for MIDI transmission. 
+ * @param {MIDIMessage|Array<MIDIMessage>} message
+ * @returns {Buffer} The formatted message(s), ready for MIDI transmission.
  */
 export default function format (message) {
   if (Array.isArray(message)) {

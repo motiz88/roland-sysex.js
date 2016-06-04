@@ -25,7 +25,7 @@ export type RolandSysexVendorData = {
 /**
  * Describes a Roland "Data Request 1" command.
  */
-export type RolandSysexCommandDR1 =  {
+export type RolandSysexCommandDR1 = {
   type: 'DR1',
   address: number,
   size: number,
@@ -35,7 +35,7 @@ export type RolandSysexCommandDR1 =  {
 /**
  * Describes a Roland "Data Set 1" command.
  */
-export type RolandSysexCommandDS1 =  {
+export type RolandSysexCommandDS1 = {
   type: 'DS1',
   address: number,
   body: Buffer,
