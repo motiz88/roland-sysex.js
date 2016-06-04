@@ -1,6 +1,6 @@
 {
   "presets": ["es2015", "stage-0"],
-  "plugins": ["transform-flow-strip-types", "transform-runtime"],
+  "plugins": ["transform-flow-strip-types", "transform-runtime", "transform-inline-environment-variables"],
   "env": {
     "development": {
       "sourceMaps": true

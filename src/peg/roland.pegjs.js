@@ -46,11 +46,21 @@ module.exports = (function() {
         peg$c7 = { type: "other", description: "Data Receive 1" },
         peg$c8 = "11",
         peg$c9 = { type: "literal", value: "11", description: "\"11\"" },
-        peg$c10 = function(address, size, checksum) {return {type: "DR1", address, size, checksum: scalar(checksum)};},
+        peg$c10 = function(address, size, checksum) {
+          const message = {type: "DR1", address, size, checksum: scalar(checksum)};
+          if (!isChecksumValid(message))
+            error('DR1 message failed checksum validation');
+          return message;
+        },
         peg$c11 = { type: "other", description: "Data Set 1" },
         peg$c12 = "12",
         peg$c13 = { type: "literal", value: "12", description: "\"12\"" },
-        peg$c14 = function(address, body) {return {type: "DS1", address, body: body.slice(0, -1), checksum: scalar(body[body.length-1])};},
+        peg$c14 = function(address, body) {
+          const message = {type: "DS1", address, body: body.slice(0, -1), checksum: scalar(body[body.length-1])};
+          if (!isChecksumValid(message))
+            error('DS1 message failed checksum validation');
+          return message;
+        },
         peg$c15 = "00",
         peg$c16 = { type: "literal", value: "00", description: "\"00\"" },
         peg$c17 = function(data) {return hex(data.join('')); },
@@ -827,6 +837,8 @@ module.exports = (function() {
     }
 
 
+      const isChecksumValid = require('../isChecksumValid').default;
+      
       function hex(str) {
         if (typeof str === 'string') {
           return new Buffer(str, 'hex');
