@@ -35,6 +35,16 @@
               
                 
                 <li><a
+                  href='#parse'
+                  class="">
+                  parse
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
                   href='#format'
                   class="">
                   format
@@ -45,9 +55,9 @@
               
                 
                 <li><a
-                  href='#parse'
-                  class="">
-                  parse
+                  href='#Message types'
+                  class="h5 bold black caps">
+                  Message types
                   
                 </a>
                 
@@ -133,69 +143,6 @@
 
   
   <div class='clearfix'>
-    <h2 class='fl' id='format'>
-      format
-    </h2>
-    
-  </div>
-  
-
-  
-
-  <div class='pre p1 fill-light'>format</div>
-
-  
-
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>message</span> <code class='quiet'>((<a href="#MIDIMessage">MIDIMessage</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&lt;<a href="#MIDIMessage">MIDIMessage</a>&gt;))</code> 
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://nodejs.org/api/buffer.html">Buffer</a></code>:
-        The formatted message(s), ready for MIDI transmission.
-
-      
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-            
-          
-            
-              <section class='py2 clearfix'>
-
-  
-  <div class='clearfix'>
     <h2 class='fl' id='parse'>
       parse
     </h2>
@@ -260,6 +207,85 @@
 
   
   <div class='clearfix'>
+    <h2 class='fl' id='format'>
+      format
+    </h2>
+    
+  </div>
+  
+
+  
+
+  <div class='pre p1 fill-light'>format</div>
+
+  
+
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>message</span> <code class='quiet'>((<a href="#MIDIMessage">MIDIMessage</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&lt;<a href="#MIDIMessage">MIDIMessage</a>&gt;))</code> 
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://nodejs.org/api/buffer.html">Buffer</a></code>:
+        The formatted message(s), ready for MIDI transmission.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+            
+          
+            
+              <div class='keyline-top-not py2'><section class='py2 clearfix'>
+
+  <h2 id='Message types' class='mt0'>
+    Message types
+  </h2>
+
+  
+    <p>The <a href="#format">format</a> and <a href="#parse">parse</a> functions use plain objects as structured representations of MIDI data.
+The following types specify these objects&#x27; shapes.</p>
+
+  
+</section>
+</div>
+            
+          
+            
+              <section class='py2 clearfix'>
+
+  
+  <div class='clearfix'>
     <h2 class='fl' id='MIDIMessage'>
       MIDIMessage
     </h2>
@@ -268,7 +294,7 @@
   
 
   <p>Describes a MIDI message.
-This is either a SysexMessage or a Buffer;</p>
+This is either a <a href="#SysexMessage">SysexMessage</a> or a <a href="#Buffer">Buffer</a>.</p>
 
 
   <div class='pre p1 fill-light'>MIDIMessage</div>
@@ -328,6 +354,23 @@ This is either a SysexMessage or a Buffer;</p>
   
 
   
+    <div class='py1 quiet mt1 prose-big'>Properties</div>
+    <div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>type</span> <code class='quiet'>(&quot;sysex&quot;)</code>
+          
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>data</span> <code class='quiet'>((<a href="https://nodejs.org/api/buffer.html">Buffer</a> | <a href="#RolandSysexVendorData">RolandSysexVendorData</a>))</code>
+          
+          
+        </div>
+      
+    </div>
+  
 
   
 
@@ -371,6 +414,35 @@ This is either a SysexMessage or a Buffer;</p>
 
   
 
+  
+    <div class='py1 quiet mt1 prose-big'>Properties</div>
+    <div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>vendor</span> <code class='quiet'>(&quot;Roland&quot;)</code>
+          
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>deviceId</span> <code class='quiet'>((<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a> | <a href="https://nodejs.org/api/buffer.html">Buffer</a>))</code>
+          
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>modelId</span> <code class='quiet'>((<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a> | <a href="https://nodejs.org/api/buffer.html">Buffer</a>))</code>
+          
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>command</span> <code class='quiet'>((<a href="#RolandSysexCommandDR1">RolandSysexCommandDR1</a> | <a href="#RolandSysexCommandDS1">RolandSysexCommandDS1</a> | <a href="https://nodejs.org/api/buffer.html">Buffer</a>))</code>
+          
+          
+        </div>
+      
+    </div>
   
 
   
@@ -416,6 +488,35 @@ This is either a SysexMessage or a Buffer;</p>
   
 
   
+    <div class='py1 quiet mt1 prose-big'>Properties</div>
+    <div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>type</span> <code class='quiet'>(&quot;DR1&quot;)</code>
+          
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>address</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+          
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>size</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+          
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>checksum</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+          
+          
+        </div>
+      
+    </div>
+  
 
   
 
@@ -459,6 +560,35 @@ This is either a SysexMessage or a Buffer;</p>
 
   
 
+  
+    <div class='py1 quiet mt1 prose-big'>Properties</div>
+    <div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>type</span> <code class='quiet'>(&quot;DS1&quot;)</code>
+          
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>address</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+          
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>body</span> <code class='quiet'>(<a href="https://nodejs.org/api/buffer.html">Buffer</a>)</code>
+          
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>checksum</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+          
+          
+        </div>
+      
+    </div>
   
 
   
