@@ -59,7 +59,7 @@ body: DATA_BYTES
 }
 ;
 
-extensibleId = data:(first:"00"i middle:"00"i* last:DATA_BYTE {return hex([first, ...middle, last].join(''));})
+extensibleId = data:(first:"00"i middle:"00"i* last:DATA_BYTE {return hex([first].concat(middle, [last]).join(''));})
 / data:DATA_BYTE {return scalar(data)}; 
 
 DATA_BYTE = $([0-7][0-9A-F]i);
