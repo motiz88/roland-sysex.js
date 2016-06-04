@@ -1,0 +1,486 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset='utf-8' />
+  <title>  | Documentation</title>
+  <meta name='viewport' content='width=device-width,initial-scale=1'>
+  <link href='assets/bass.css' type='text/css' rel='stylesheet' />
+  <link href='assets/style.css' type='text/css' rel='stylesheet' />
+  <link href='assets/github.css' type='text/css' rel='stylesheet' />
+</head>
+<body class='documentation'>
+  <div class='max-width-4 mx-auto'>
+    <div class='clearfix md-mxn2'>
+      <div class='fixed xs-hide fix-3 overflow-auto max-height-100'>
+        <div class='py1 px2'>
+          <h3 class='mb0 no-anchor'></h3>
+          <div class='mb1'><code></code></div>
+          <input
+            placeholder='Filter'
+            id='filter-input'
+            class='col12 block input'
+            type='text' />
+          <div id='toc'>
+            <ul class='list-reset h5 py1-ul'>
+              
+                
+                <li><a
+                  href='#roland-sysex.js'
+                  class="h5 bold black caps">
+                  roland-sysex.js
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#format'
+                  class="">
+                  format
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#parse'
+                  class="">
+                  parse
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#MIDIMessage'
+                  class="">
+                  MIDIMessage
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#SysexMessage'
+                  class="">
+                  SysexMessage
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#RolandSysexVendorData'
+                  class="">
+                  RolandSysexVendorData
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#RolandSysexCommandDR1'
+                  class="">
+                  RolandSysexCommandDR1
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#RolandSysexCommandDS1'
+                  class="">
+                  RolandSysexCommandDS1
+                  
+                </a>
+                
+                </li>
+              
+            </ul>
+          </div>
+          <div class='mt1 h6 quiet'>
+            <a href='http://documentation.js.org/reading-documentation.html'>Need help reading this?</a>
+          </div>
+        </div>
+      </div>
+      <div class='fix-margin-3'>
+        <div class='px2'>
+          
+            
+              <div class='keyline-top-not py2'><section class='py2 clearfix'>
+
+  <h2 id='roland-sysex.js' class='mt0'>
+    roland-sysex.js
+  </h2>
+
+  
+    <h4>Parse and generate Roland-specific MIDI SysEx messages in JavaScript</h4>
+
+  
+</section>
+</div>
+            
+          
+            
+              <section class='py2 clearfix'>
+
+  
+  <div class='clearfix'>
+    <h2 class='fl' id='format'>
+      format
+    </h2>
+    
+  </div>
+  
+
+  
+
+  <div class='pre p1 fill-light'>format</div>
+
+  
+
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>message</span> <code class='quiet'>((<a href="#MIDIMessage">MIDIMessage</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&lt;<a href="#MIDIMessage">MIDIMessage</a>&gt;))</code> 
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://nodejs.org/api/buffer.html">Buffer</a></code>:
+        The formatted message(s), ready for MIDI transmission.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+            
+          
+            
+              <section class='py2 clearfix'>
+
+  
+  <div class='clearfix'>
+    <h2 class='fl' id='parse'>
+      parse
+    </h2>
+    
+  </div>
+  
+
+  
+
+  <div class='pre p1 fill-light'>parse</div>
+
+  
+
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>buf</span> <code class='quiet'>(<a href="https://nodejs.org/api/buffer.html">Buffer</a>)</code> A buffer containing MIDI messages.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&lt;<a href="#MIDIMessage">MIDIMessage</a>&gt;</code>:
+        Contains SysEx messages parsed from the buffer.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+            
+          
+            
+              <section class='py2 clearfix'>
+
+  
+  <div class='clearfix'>
+    <h2 class='fl' id='MIDIMessage'>
+      MIDIMessage
+    </h2>
+    
+  </div>
+  
+
+  <p>Describes a MIDI message.
+This is either a SysexMessage or a Buffer;</p>
+
+
+  <div class='pre p1 fill-light'>MIDIMessage</div>
+
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+            
+          
+            
+              <section class='py2 clearfix'>
+
+  
+  <div class='clearfix'>
+    <h2 class='fl' id='SysexMessage'>
+      SysexMessage
+    </h2>
+    
+  </div>
+  
+
+  <p>Describes a SysEx message.</p>
+
+
+  <div class='pre p1 fill-light'>SysexMessage</div>
+
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+            
+          
+            
+              <section class='py2 clearfix'>
+
+  
+  <div class='clearfix'>
+    <h2 class='fl' id='RolandSysexVendorData'>
+      RolandSysexVendorData
+    </h2>
+    
+  </div>
+  
+
+  <p>Describes the Roland-specific parts of a SysEx message that are common to various commands.</p>
+
+
+  <div class='pre p1 fill-light'>RolandSysexVendorData</div>
+
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+            
+          
+            
+              <section class='py2 clearfix'>
+
+  
+  <div class='clearfix'>
+    <h2 class='fl' id='RolandSysexCommandDR1'>
+      RolandSysexCommandDR1
+    </h2>
+    
+  </div>
+  
+
+  <p>Describes a Roland &quot;Data Request 1&quot; command.</p>
+
+
+  <div class='pre p1 fill-light'>RolandSysexCommandDR1</div>
+
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+            
+          
+            
+              <section class='py2 clearfix'>
+
+  
+  <div class='clearfix'>
+    <h2 class='fl' id='RolandSysexCommandDS1'>
+      RolandSysexCommandDS1
+    </h2>
+    
+  </div>
+  
+
+  <p>Describes a Roland &quot;Data Set 1&quot; command.</p>
+
+
+  <div class='pre p1 fill-light'>RolandSysexCommandDS1</div>
+
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+            
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src='assets/anchor.js'></script>
+  <script src='assets/site.js'></script>
+</body>
+</html>
