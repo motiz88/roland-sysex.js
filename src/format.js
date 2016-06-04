@@ -24,6 +24,7 @@ function requiredSize (message) {
 }
 
 /**
+ * Encodes MIDI data into a {@link Buffer}. For supported Roland messages, checksum calculation is done automatically.
  * @param {MIDIMessage|Array<MIDIMessage>} message
  * @returns {Buffer} The formatted message(s), ready for MIDI transmission.
  */
