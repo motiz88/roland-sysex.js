@@ -7,4 +7,3 @@ coverage/
 doc/
 deploy_key
 deploy_key.pub
-**/*.pegjs.js
