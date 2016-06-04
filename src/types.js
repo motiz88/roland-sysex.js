@@ -1,4 +1,4 @@
-/** 
+/**
  * Describes a MIDI message.
  * This is either a SysexMessage or a Buffer;
  */
