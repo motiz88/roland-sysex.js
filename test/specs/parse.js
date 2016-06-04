@@ -46,4 +46,8 @@ describe('parse()', () => {
     }]);
     parse(hex `F0   41 10 6A  12   00 00 00 01 00 00 00 01 00 00 00 01 00 00 00 01   7c F7`);
   });
+  it('should throw on bad checksum', () => {
+    (() => parse(hex `F0   41 10 6A  12   00 00 00 01   11 F7`)).should.throw(/checksum/i);
+    (() => parse(hex `F0   41 10 6A  11   01 02 03 04   00 00 00 00   12  F7`)).should.throw(/checksum/i);
+  });
 });

@@ -1,4 +1,6 @@
 {
+  const isChecksumValid = require('../isChecksumValid').default;
+  
   function hex(str) {
     if (typeof str === 'string') {
       return new Buffer(str, 'hex');
@@ -38,13 +40,23 @@ rolandDR1 "Data Receive 1" = "11"i
 address:ADDRESS4
 size:SIZE4
 checksum:DATA_BYTE
-{return {type: "DR1", address, size, checksum: scalar(checksum)};}
+{
+  const message = {type: "DR1", address, size, checksum: scalar(checksum)};
+  if (!isChecksumValid(message))
+    error('DR1 message failed checksum validation');
+  return message;
+}
 ;
 
 rolandDS1 "Data Set 1" = "12"i
 address:ADDRESS4
 body: DATA_BYTES
-{return {type: "DS1", address, body: body.slice(0, -1), checksum: scalar(body[body.length-1])};}
+{
+  const message = {type: "DS1", address, body: body.slice(0, -1), checksum: scalar(body[body.length-1])};
+  if (!isChecksumValid(message))
+    error('DS1 message failed checksum validation');
+  return message;
+}
 ;
 
 extensibleId = data:("00"i DATA_BYTE DATA_BYTE) {return hex(data.join('')); }

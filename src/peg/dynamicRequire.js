@@ -1,9 +1,9 @@
+import pegjs from 'pegjs';
+import fs from 'fs';
+
 module.exports = function dynamicRequire (path) {
-  return require('pegjs')
-    .buildParser(
-      require('fs')
-        .readFileSync(
-          require.resolve(path), 'utf8'
-      )
-  );
+  const pegSource = fs.readFileSync(require.resolve(path), 'utf8');
+  const parserCode = pegjs.buildParser(pegSource, {output: 'source'});
+  /* eslint no-eval: 0 */
+  return eval(parserCode);
 };
