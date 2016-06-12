@@ -1,7 +1,9 @@
 import rolandChecksum from './rolandChecksum';
+import isBufferEquivalent from './utils/isBufferEquivalent';
+import asBuffer from './utils/asBuffer';
 
 function requiredSize (message) {
-  if (Buffer.isBuffer(message)) return message.length;
+  if (isBufferEquivalent(message)) return message.byteLength || message.length;
   if (typeof message === 'number') return 1; // make it simple
   if (!message) return 0;
   switch (message.type) {
@@ -35,15 +37,15 @@ export default function format (message) {
   if (Array.isArray(message)) {
     return Buffer.concat(message.map(format));
   }
-  if (Buffer.isBuffer(message)) return message;
+  if (isBufferEquivalent(message)) return asBuffer(message);
   if (!message || typeof message !== 'object') throw new Error('Message must be an Object or a Buffer');
   const size = requiredSize(message);
   const buf = new Buffer(size);
   buf.fill(0);
   let i = 0;
   const write = data => {
-    if (Buffer.isBuffer(data)) {
-      i += data.copy(buf, i);
+    if (isBufferEquivalent(data)) {
+      if (data.byteLength || data.length) i += asBuffer(data).copy(buf, i);
     } else {
       buf[i++] = data;
     }
@@ -52,13 +54,13 @@ export default function format (message) {
     case 'sysex':
       write(0xF0);
       if (message.data) {
-        if (Buffer.isBuffer(message.data)) {
+        if (isBufferEquivalent(message.data)) {
           write(message.data);
         } else if (message.data.vendor === 'Roland') {
           write(0x41);
           write(message.data.deviceId);
           write(message.data.modelId);
-          if (Buffer.isBuffer(message.data.command)) {
+          if (isBufferEquivalent(message.data.command)) {
             write(message.data.command);
           } else {
             switch (message.data.command.type) {

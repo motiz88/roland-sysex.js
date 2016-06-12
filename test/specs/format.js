@@ -96,4 +96,20 @@ describe('format()', () => {
       }
     }).should.deep.equal(hex `F0   41 10 6A  12   00 00 00 01   7F F7`);
   });
+  it('should accept Uint8Array for embedded data as well as Buffer', () => {
+    format({
+      type: 'sysex',
+      data: {
+        vendor: 'Roland',
+        deviceId: 0x10,
+        modelId: 0x6A,
+        command: {
+          type: 'DT1',
+          address: 0x00000001,
+          body: new Uint8Array([]),
+          checksum: 0x7f
+        }
+      }
+    }).should.deep.equal(hex `F0   41 10 6A  12   00 00 00 01   7F F7`);
+  });
 });

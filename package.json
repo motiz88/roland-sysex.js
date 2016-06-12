@@ -74,7 +74,8 @@
     "sinon-chai": "^2.8.0"
   },
   "dependencies": {
-    "babel-runtime": "^6.9.2"
+    "babel-runtime": "^6.9.2",
+    "safe-buffer": "^5.0.1"
   },
   "release": {
     "verifyRelease": {
