@@ -2,11 +2,8 @@
   "name": "roland-sysex.js",
   "description": "Parse and generate Roland-specific MIDI SysEx messages in JavaScript",
   "main": "dist/index.js",
-  "jsnext:main": "src/index.js",
   "files": [
-    "dist",
-    "src",
-    ".babelrc"
+    "dist"
   ],
   "scripts": {
     "repo-setup": "./auto-deploy-docs/travis-gen-deploy-key.sh motiz88/roland-sysex.js",
