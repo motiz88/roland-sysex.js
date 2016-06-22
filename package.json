@@ -2,11 +2,8 @@
   "name": "js-starter-2016",
   "description": "starter-description",
   "main": "dist/index.js",
-  "jsnext:main": "src/index.js",
   "files": [
-    "dist",
-    "src",
-    ".babelrc"
+    "dist"
   ],
   "scripts": {
     "repo-setup": "./auto-deploy-docs/travis-gen-deploy-key.sh motiz88/js-starter-2016",
