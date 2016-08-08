@@ -58,7 +58,7 @@
     "glob-promise": "^1.0.6",
     "istanbul": "^1.0.0-alpha.2",
     "lolex": "^1.5.0",
-    "mocha": "^2.5.3",
+    "mocha": "^3.0.2",
     "mocha-lcov-reporter": "^1.2.0",
     "mz": "^2.4.0",
     "node-interval-tree": "^0.2.1",
