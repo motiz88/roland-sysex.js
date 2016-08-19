@@ -62,7 +62,7 @@
     "mocha-lcov-reporter": "^1.2.0",
     "mz": "^2.4.0",
     "node-interval-tree": "^0.2.1",
-    "pegjs": "^0.9.0",
+    "pegjs": "^0.10.0",
     "semantic-release": "^4.3.5",
     "semistandard": "^8.0.0",
     "semistandard-format": "^3.0.0",
