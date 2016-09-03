@@ -64,7 +64,7 @@
     "node-interval-tree": "^0.2.1",
     "pegjs": "^0.9.0",
     "semantic-release": "^4.3.5",
-    "semistandard": "^8.0.0",
+    "semistandard": "^9.0.0",
     "semistandard-format": "^3.0.0",
     "shx": "^0.1.2",
     "sinon": "^1.17.4",
