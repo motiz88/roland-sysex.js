@@ -51,7 +51,7 @@
     "chai-things": "^0.2.0",
     "coveralls": "^2.11.9",
     "cracks": "^3.1.2",
-    "cross-env": "^2.0.0",
+    "cross-env": "^3.1.1",
     "documentation": "^4.0.0-beta4",
     "documentation-theme-utils": "github:motiz88/documentation-theme-utils",
     "glob": "^7.0.3",
