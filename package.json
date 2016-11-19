@@ -55,7 +55,7 @@
     "documentation": "^4.0.0-beta4",
     "documentation-theme-utils": "github:motiz88/documentation-theme-utils",
     "glob": "^7.0.3",
-    "glob-promise": "^1.0.6",
+    "glob-promise": "^2.0.0",
     "istanbul": "^1.0.0-alpha.2",
     "lolex": "^1.5.0",
     "mocha": "^2.5.3",
