@@ -67,7 +67,7 @@
     "semistandard": "^8.0.0",
     "semistandard-format": "^3.0.0",
     "shx": "^0.1.2",
-    "sinon": "^1.17.4",
+    "sinon": "^2.2.0",
     "sinon-chai": "^2.8.0"
   },
   "dependencies": {
